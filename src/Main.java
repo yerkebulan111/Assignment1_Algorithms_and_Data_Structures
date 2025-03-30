@@ -91,6 +91,19 @@ public class Main {
                 double duration7 = (endTime7 - startTime7) / 1000000;
                 System.out.println("\nTime taken: " + duration7 + "milliseconds");
                 break;
+            case 8:
+                System.out.println("Problem 8. Checking if string “s” is all consists of digits");
+                System.out.print("Input string: ");
+                String s = input.next();
+                double startTime8= System.nanoTime();
+                String result = CheckForDigits(s) ? "Yes" : "No";
+                double endTime8= System.nanoTime();
+                double duration8 = (endTime8 - startTime8) / 1000000;
+                System.out.println("String " + s + " is all consists of digits?: " + result);
+                System.out.println("Time taken: " + duration8 + "milliseconds");
+                break;
+
+
         }
 
 
@@ -98,6 +111,35 @@ public class Main {
 
 
 
+
+
+    /**
+     * This method checks if "12345a789" has another type of character except digits
+     * This method calls CheckForDigits(String s) method
+     *
+     * @return True or false, if it contains other type of char returns false, if it doesn't returns true
+     */
+    public static boolean CheckForDigits() {
+        return CheckForDigits("12345a789");
+    }
+
+    /**
+     * This method defines whether given string s all consists of digits or not
+     * It uses a recursive approach
+     * Time complexity:
+     *
+     * @param s String which will be checked if it contains characters that is not digit
+     * @return
+     */
+    public static boolean CheckForDigits(String s) {
+        if ((47 < s.charAt(0) & s.charAt(0) <58 ) & s.length()==1) {
+            return true;
+        }
+        else if (47 < s.charAt(0) & s.charAt(0) <58 ) {
+            return CheckForDigits(s.substring(1));
+        }
+        else{return false;}
+    }
 
 
 
