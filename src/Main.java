@@ -102,7 +102,18 @@ public class Main {
                 System.out.println("String " + s + " is all consists of digits?: " + result);
                 System.out.println("Time taken: " + duration8 + "milliseconds");
                 break;
-
+            case 9:
+                System.out.println("Problem 9. Binomial coefficient");
+                System.out.print("Input n: ");
+                int n2 = input.nextInt();
+                System.out.print("Input k: ");
+                int k2 = input.nextInt();
+                double startTime9= System.nanoTime();
+                System.out.println(n2 + " choose " + k2 + ": " + binomialC(n2, k2));
+                double endTime9= System.nanoTime();
+                double duration9 = (endTime9 - startTime9) / 1000000;
+                System.out.println("Time taken: " + duration9 + "milliseconds");
+                break;
 
         }
 
@@ -110,6 +121,35 @@ public class Main {
     }
 
 
+
+
+
+    /**
+     * This method calculates 7 choose 3
+     * It is a convenience method that internally calls binomialC(int n, int k) method
+     * @return 7 choose 3
+     */
+    public static int binomialC() {
+        return binomialC(7,3);
+    }
+
+    /**
+     * This method calculates binomial coefficient (n choose k)
+     * It uses recursive approach
+     * Time complexity: O(2^n)
+     *The method breaks down the task into smaller tasks: binomialC(n,k) = binomialC(n-1,k-1) + binomialC(n-1,k),
+     * everytime there is block binomialC(k,k) or binomialC(0,n) in STACK, it returns 1
+     *
+     * @param n The number of ways to choose k elements
+     * @param k
+     * @return Binomial coefficient n choose k
+     */
+    public static int binomialC(int n, int k) {
+        if (k==0 || k==n)
+            return 1;
+        else return binomialC(n-1,k-1) + binomialC(n-1, k);
+
+    }
 
 
 
