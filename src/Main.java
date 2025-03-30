@@ -1,11 +1,121 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        double startTime = System.nanoTime();
-        int result = aPowerOfn();
-        double endTime = System.nanoTime();
-        double duration = (endTime - startTime) / 1000000;
-        System.out.println("2 to the power of 10 is: " + result);
-        System.out.println("Time taken: " + duration + "milliseconds");
+
+        System.out.println("Hello! Which task do you want to see?");
+        System.out.print("Input: ");
+        Scanner input = new Scanner(System.in);
+        int choice = input.nextInt();
+        switch (choice) {
+            case 1:
+                System.out.println("Problem 1. The minimum number of array");
+                System.out.print("Input length of array: ");
+                int length = input.nextInt();
+                System.out.println("Input array elements: ");
+                int[] array = new int[length];
+                for (int i = 0; i < length; i++) {
+                    array[i] = input.nextInt();
+                }
+                double startTime = System.nanoTime();
+                System.out.println("The minimum number of array: " + printMIN(length, array));
+                double endTime = System.nanoTime();
+                double duration = (endTime - startTime) / 1000000;
+                System.out.println("Time taken: " + duration + "milliseconds");
+                break;
+            case 2:
+                System.out.println("Problem 2. The average of array");
+                System.out.print("Input length of array: ");
+                length = input.nextInt();
+                System.out.println("Input array elements: ");
+                int[] array2 = new int[length];
+                for (int i = 0; i < length; i++) {
+                    array2[i] = input.nextInt();
+                }
+                double startTime2 = System.nanoTime();
+                System.out.println("The average of array: " + printAVG(length, array2));
+                double endTime2 = System.nanoTime();
+                double duration2 = (endTime2 - startTime2) / 1000000;
+                System.out.println("Time taken: " + duration2 + "milliseconds");
+                break;
+            case 3:
+                System.out.println("Problem 3. Check whether given number is prime or composite");
+                System.out.print("Input number: ");
+                int number = input.nextInt();
+                double startTime3= System.nanoTime();
+                System.out.println("The given number is: " + isItPrime(number));
+                double endTime3= System.nanoTime();
+                double duration3 = (endTime3 - startTime3) / 1000000;
+                System.out.println("Time taken: " + duration3 + "milliseconds");
+                break;
+            case 4:
+                System.out.println("Problem 4. Finding factorial of given number");
+                System.out.print("Input number: ");
+                int number2 = input.nextInt();
+                double startTime4= System.nanoTime();
+                System.out.println("The factorial of " + number2 + " is: " + facto(number2));
+                double endTime4= System.nanoTime();
+                double duration4 = (endTime4 - startTime4) / 1000000;
+                System.out.println("Time taken: " + duration4 + "milliseconds");
+                break;
+            case 5:
+                System.out.println("Problem 5. n-th element in Fibonacci sequence");
+                System.out.print("Input n-th order : ");
+                int number3 = input.nextInt();
+                double startTime5= System.nanoTime();
+                System.out.println("The " + number3 + "-th element in Fibonacci sequence is: " + fibb(number3));
+                double endTime5= System.nanoTime();
+                double duration5 = (endTime5 - startTime5) / 1000000;
+                System.out.println("Time taken: " + duration5 + "milliseconds");
+                break;
+            case 6:
+                System.out.println("Problem 6. a^n");
+                System.out.print("Input a: ");
+                int a = input.nextInt();
+                System.out.print("Input n: ");
+                int n = input.nextInt();
+                double startTime6= System.nanoTime();
+                System.out.println(a + " to the power of " + n + ": " + aPowerOfn(a, n));
+                double endTime6= System.nanoTime();
+                double duration6 = (endTime6 - startTime6) / 1000000;
+                System.out.println("Time taken: " + duration6 + "milliseconds");
+                break;
+            case 7:
+                System.out.println("Problem 7. Reverse order of given array");
+                System.out.print("Input length of array: ");
+                int length2 = input.nextInt();
+                System.out.println("Input array elements: ");
+                double startTime7= System.nanoTime();
+                printReverse(length2, new Scanner(System.in));
+                double endTime7= System.nanoTime();
+                double duration7 = (endTime7 - startTime7) / 1000000;
+                System.out.println("\nTime taken: " + duration7 + "milliseconds");
+                break;
+        }
+
+
+    }
+
+
+
+
+
+
+    /**
+     * This method gives reverse order version of given an array of n elements
+     * It uses a recursive approach
+     * Time complexity: O(n), where n is number of elements of array
+     *
+     * @param n Number of elements of given array
+     * @param scanner Scanner, to scan input elements of array
+     */
+    public static void printReverse(int n, Scanner scanner) {
+        if (n == 0) {
+            return;
+        }
+        int a = scanner.nextInt();
+        printReverse(n - 1, scanner);
+        System.out.print(a + " ");
     }
 
 
@@ -107,7 +217,6 @@ public class Main {
         return isItPrime(number);
     }
 
-
     /**
      * This method returns true or false, if number is prime it returns true, if it is not - false
      * This method uses conditions and for loop
@@ -139,7 +248,6 @@ public class Main {
         int length = 4;
         return printAVG(length, array);
     }
-
 
     /**
      * This method returns the minimum value of array
@@ -173,7 +281,6 @@ public class Main {
         int len = 5;
         return printMIN(len, arr);
     }
-
 
     /**
      * This method returns the minimum value of array
