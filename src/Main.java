@@ -42,8 +42,9 @@ public class Main {
                 System.out.println("Problem 3. Check whether given number is prime or composite");
                 System.out.print("Input number: ");
                 int number = input.nextInt();
+                String result = isItPrime(number) ? "Prime" : "Composite";
                 double startTime3= System.nanoTime();
-                System.out.println("The given number is: " + isItPrime(number));
+                System.out.println("The given number is: " + result);
                 double endTime3= System.nanoTime();
                 double duration3 = (endTime3 - startTime3) / 1000000;
                 System.out.println("Time taken: " + duration3 + "milliseconds");
@@ -96,14 +97,14 @@ public class Main {
                 System.out.print("Input string: ");
                 String s = input.next();
                 double startTime8= System.nanoTime();
-                String result = CheckForDigits(s) ? "Yes" : "No";
+                String result3 = CheckForDigits(s) ? "Yes" : "No";
                 double endTime8= System.nanoTime();
                 double duration8 = (endTime8 - startTime8) / 1000000;
-                System.out.println("String " + s + " is all consists of digits?: " + result);
+                System.out.println("String " + s + " is all consists of digits?: " + result3);
                 System.out.println("Time taken: " + duration8 + "milliseconds");
                 break;
             case 9:
-                System.out.println("Problem 9. Binomial coefficient");
+                System.out.println("Problem 9. Binomial coefficient (n choose k)");
                 System.out.print("Input n: ");
                 int n2 = input.nextInt();
                 System.out.print("Input k: ");
@@ -114,12 +115,55 @@ public class Main {
                 double duration9 = (endTime9 - startTime9) / 1000000;
                 System.out.println("Time taken: " + duration9 + "milliseconds");
                 break;
-
+            case 10:
+                System.out.println("Problem 10. GCD(a,b)");
+                System.out.print("Input a: ");
+                int a2 = input.nextInt();
+                System.out.print("Input b: ");
+                int b2 = input.nextInt();
+                double startTime10= System.nanoTime();
+                System.out.println("GCD(" + a2 + "," + b2 + "): " + GCD(a2, b2));
+                double endTime10= System.nanoTime();
+                double duration10 = (endTime10 - startTime10) / 1000000;
+                System.out.println("Time taken: " + duration10 + "milliseconds");
+                break;
+            default:
+                System.out.println("There is no such task");
+                break;
         }
 
 
     }
 
+
+
+
+    /**
+     * This method solves GCD(32,48)
+     * It calls GCD method
+     *
+     * @return GCD(32,48)
+     */
+    public static int GCD() {
+        return GCD(32,48);
+    }
+
+
+    /**
+     * This method calculates gcd of two number: a and b
+     * It uses a recursive approach
+     * Time complexity: O(log(x)) where x=a if a>=b, or x=b if b>=a
+     * a = b*q + r, where q=a/b and r=a%b
+     * if r!=0 we should find GCD(b,r) and so on until we get r=0
+     *
+     * @param a One of two numbers
+     * @param b One of two numbers
+     * @return GCD of two number
+     */
+    public static int GCD(int a, int b) {
+        if (a%b == 0) return b;
+        else return GCD(b, a%b);
+    }
 
 
 
