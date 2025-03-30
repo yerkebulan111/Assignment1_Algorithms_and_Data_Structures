@@ -3,135 +3,141 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello! Which task do you want to see?");
-        System.out.print("Input: ");
-        Scanner input = new Scanner(System.in);
-        int choice = input.nextInt();
-        switch (choice) {
-            case 1:
-                System.out.println("Problem 1. The minimum number of array");
-                System.out.print("Input length of array: ");
-                int length = input.nextInt();
-                System.out.println("Input array elements: ");
-                int[] array = new int[length];
-                for (int i = 0; i < length; i++) {
-                    array[i] = input.nextInt();
-                }
-                double startTime = System.nanoTime();
-                System.out.println("The minimum number of array: " + printMIN(length, array));
-                double endTime = System.nanoTime();
-                double duration = (endTime - startTime) / 1000000;
-                System.out.println("Time taken: " + duration + "milliseconds");
+        while (true) {
+            System.out.println();
+            System.out.println("Hello! Which task do you want to see?");
+            System.out.println("if you don't want to see, just send 0");
+            System.out.print("Input: ");
+            Scanner input = new Scanner(System.in);
+            int choice = input.nextInt();
+            if (choice == 0) {
                 break;
-            case 2:
-                System.out.println("Problem 2. The average of array");
-                System.out.print("Input length of array: ");
-                length = input.nextInt();
-                System.out.println("Input array elements: ");
-                int[] array2 = new int[length];
-                for (int i = 0; i < length; i++) {
-                    array2[i] = input.nextInt();
-                }
-                double startTime2 = System.nanoTime();
-                System.out.println("The average of array: " + printAVG(length, array2));
-                double endTime2 = System.nanoTime();
-                double duration2 = (endTime2 - startTime2) / 1000000;
-                System.out.println("Time taken: " + duration2 + "milliseconds");
-                break;
-            case 3:
-                System.out.println("Problem 3. Check whether given number is prime or composite");
-                System.out.print("Input number: ");
-                int number = input.nextInt();
-                String result = isItPrime(number) ? "Prime" : "Composite";
-                double startTime3= System.nanoTime();
-                System.out.println("The given number is: " + result);
-                double endTime3= System.nanoTime();
-                double duration3 = (endTime3 - startTime3) / 1000000;
-                System.out.println("Time taken: " + duration3 + "milliseconds");
-                break;
-            case 4:
-                System.out.println("Problem 4. Finding factorial of given number");
-                System.out.print("Input number: ");
-                int number2 = input.nextInt();
-                double startTime4= System.nanoTime();
-                System.out.println("The factorial of " + number2 + " is: " + facto(number2));
-                double endTime4= System.nanoTime();
-                double duration4 = (endTime4 - startTime4) / 1000000;
-                System.out.println("Time taken: " + duration4 + "milliseconds");
-                break;
-            case 5:
-                System.out.println("Problem 5. n-th element in Fibonacci sequence");
-                System.out.print("Input n-th order : ");
-                int number3 = input.nextInt();
-                double startTime5= System.nanoTime();
-                System.out.println("The " + number3 + "-th element in Fibonacci sequence is: " + fibb(number3));
-                double endTime5= System.nanoTime();
-                double duration5 = (endTime5 - startTime5) / 1000000;
-                System.out.println("Time taken: " + duration5 + "milliseconds");
-                break;
-            case 6:
-                System.out.println("Problem 6. a^n");
-                System.out.print("Input a: ");
-                int a = input.nextInt();
-                System.out.print("Input n: ");
-                int n = input.nextInt();
-                double startTime6= System.nanoTime();
-                System.out.println(a + " to the power of " + n + ": " + aPowerOfn(a, n));
-                double endTime6= System.nanoTime();
-                double duration6 = (endTime6 - startTime6) / 1000000;
-                System.out.println("Time taken: " + duration6 + "milliseconds");
-                break;
-            case 7:
-                System.out.println("Problem 7. Reverse order of given array");
-                System.out.print("Input length of array: ");
-                int length2 = input.nextInt();
-                System.out.println("Input array elements: ");
-                double startTime7= System.nanoTime();
-                printReverse(length2, new Scanner(System.in));
-                double endTime7= System.nanoTime();
-                double duration7 = (endTime7 - startTime7) / 1000000;
-                System.out.println("\nTime taken: " + duration7 + "milliseconds");
-                break;
-            case 8:
-                System.out.println("Problem 8. Checking if string “s” is all consists of digits");
-                System.out.print("Input string: ");
-                String s = input.next();
-                double startTime8= System.nanoTime();
-                String result3 = CheckForDigits(s) ? "Yes" : "No";
-                double endTime8= System.nanoTime();
-                double duration8 = (endTime8 - startTime8) / 1000000;
-                System.out.println("String " + s + " is all consists of digits?: " + result3);
-                System.out.println("Time taken: " + duration8 + "milliseconds");
-                break;
-            case 9:
-                System.out.println("Problem 9. Binomial coefficient (n choose k)");
-                System.out.print("Input n: ");
-                int n2 = input.nextInt();
-                System.out.print("Input k: ");
-                int k2 = input.nextInt();
-                double startTime9= System.nanoTime();
-                System.out.println(n2 + " choose " + k2 + ": " + binomialC(n2, k2));
-                double endTime9= System.nanoTime();
-                double duration9 = (endTime9 - startTime9) / 1000000;
-                System.out.println("Time taken: " + duration9 + "milliseconds");
-                break;
-            case 10:
-                System.out.println("Problem 10. GCD(a,b)");
-                System.out.print("Input a: ");
-                int a2 = input.nextInt();
-                System.out.print("Input b: ");
-                int b2 = input.nextInt();
-                double startTime10= System.nanoTime();
-                System.out.println("GCD(" + a2 + "," + b2 + "): " + GCD(a2, b2));
-                double endTime10= System.nanoTime();
-                double duration10 = (endTime10 - startTime10) / 1000000;
-                System.out.println("Time taken: " + duration10 + "milliseconds");
-                break;
-            default:
-                System.out.println("There is no such task");
-                break;
+            }
+            switch (choice) {
+                case 1:
+                    System.out.println("Problem 1. The minimum number of array");
+                    System.out.print("Input length of array: ");
+                    int length = input.nextInt();
+                    System.out.println("Input array elements: ");
+                    int[] array = new int[length];
+                    for (int i = 0; i < length; i++) {
+                        array[i] = input.nextInt();
+                    }
+                    double startTime = System.nanoTime();
+                    System.out.println("The minimum number of array: " + printMIN(length, array));
+                    double endTime = System.nanoTime();
+                    double duration = (endTime - startTime) / 1000000;
+                    System.out.println("Time taken: " + duration + "milliseconds");
+                    break;
+                case 2:
+                    System.out.println("Problem 2. The average of array");
+                    System.out.print("Input length of array: ");
+                    length = input.nextInt();
+                    System.out.println("Input array elements: ");
+                    int[] array2 = new int[length];
+                    for (int i = 0; i < length; i++) {
+                        array2[i] = input.nextInt();
+                    }
+                    double startTime2 = System.nanoTime();
+                    System.out.println("The average of array: " + printAVG(length, array2));
+                    double endTime2 = System.nanoTime();
+                    double duration2 = (endTime2 - startTime2) / 1000000;
+                    System.out.println("Time taken: " + duration2 + "milliseconds");
+                    break;
+                case 3:
+                    System.out.println("Problem 3. Check whether given number is prime or composite");
+                    System.out.print("Input number: ");
+                    int number = input.nextInt();
+                    String result = isItPrime(number) ? "Prime" : "Composite";
+                    double startTime3 = System.nanoTime();
+                    System.out.println("The given number is: " + result);
+                    double endTime3 = System.nanoTime();
+                    double duration3 = (endTime3 - startTime3) / 1000000;
+                    System.out.println("Time taken: " + duration3 + "milliseconds");
+                    break;
+                case 4:
+                    System.out.println("Problem 4. Finding factorial of given number");
+                    System.out.print("Input number: ");
+                    int number2 = input.nextInt();
+                    double startTime4 = System.nanoTime();
+                    System.out.println("The factorial of " + number2 + " is: " + facto(number2));
+                    double endTime4 = System.nanoTime();
+                    double duration4 = (endTime4 - startTime4) / 1000000;
+                    System.out.println("Time taken: " + duration4 + "milliseconds");
+                    break;
+                case 5:
+                    System.out.println("Problem 5. n-th element in Fibonacci sequence");
+                    System.out.print("Input n-th order : ");
+                    int number3 = input.nextInt();
+                    double startTime5 = System.nanoTime();
+                    System.out.println("The " + number3 + "-th element in Fibonacci sequence is: " + fibb(number3));
+                    double endTime5 = System.nanoTime();
+                    double duration5 = (endTime5 - startTime5) / 1000000;
+                    System.out.println("Time taken: " + duration5 + "milliseconds");
+                    break;
+                case 6:
+                    System.out.println("Problem 6. a^n");
+                    System.out.print("Input a: ");
+                    int a = input.nextInt();
+                    System.out.print("Input n: ");
+                    int n = input.nextInt();
+                    double startTime6 = System.nanoTime();
+                    System.out.println(a + " to the power of " + n + ": " + aPowerOfn(a, n));
+                    double endTime6 = System.nanoTime();
+                    double duration6 = (endTime6 - startTime6) / 1000000;
+                    System.out.println("Time taken: " + duration6 + "milliseconds");
+                    break;
+                case 7:
+                    System.out.println("Problem 7. Reverse order of given array");
+                    System.out.print("Input length of array: ");
+                    int length2 = input.nextInt();
+                    System.out.println("Input array elements: ");
+                    double startTime7 = System.nanoTime();
+                    printReverse(length2, new Scanner(System.in));
+                    double endTime7 = System.nanoTime();
+                    double duration7 = (endTime7 - startTime7) / 1000000;
+                    System.out.println("\nTime taken: " + duration7 + "milliseconds");
+                    break;
+                case 8:
+                    System.out.println("Problem 8. Checking if string “s” is all consists of digits");
+                    System.out.print("Input string: ");
+                    String s = input.next();
+                    double startTime8 = System.nanoTime();
+                    String result3 = CheckForDigits(s) ? "Yes" : "No";
+                    double endTime8 = System.nanoTime();
+                    double duration8 = (endTime8 - startTime8) / 1000000;
+                    System.out.println("String " + s + " is all consists of digits?: " + result3);
+                    System.out.println("Time taken: " + duration8 + "milliseconds");
+                    break;
+                case 9:
+                    System.out.println("Problem 9. Binomial coefficient (n choose k)");
+                    System.out.print("Input n: ");
+                    int n2 = input.nextInt();
+                    System.out.print("Input k: ");
+                    int k2 = input.nextInt();
+                    double startTime9 = System.nanoTime();
+                    System.out.println(n2 + " choose " + k2 + ": " + binomialC(n2, k2));
+                    double endTime9 = System.nanoTime();
+                    double duration9 = (endTime9 - startTime9) / 1000000;
+                    System.out.println("Time taken: " + duration9 + "milliseconds");
+                    break;
+                case 10:
+                    System.out.println("Problem 10. GCD(a,b)");
+                    System.out.print("Input a: ");
+                    int a2 = input.nextInt();
+                    System.out.print("Input b: ");
+                    int b2 = input.nextInt();
+                    double startTime10 = System.nanoTime();
+                    System.out.println("GCD(" + a2 + "," + b2 + "): " + GCD(a2, b2));
+                    double endTime10 = System.nanoTime();
+                    double duration10 = (endTime10 - startTime10) / 1000000;
+                    System.out.println("Time taken: " + duration10 + "milliseconds");
+                    break;
+                default:
+                    System.out.println("There is no such task");
+                    break;
+            }
         }
-
 
     }
 
